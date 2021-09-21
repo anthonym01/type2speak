@@ -1,0 +1,14 @@
+{
+  "appId": "com.ANTHONYM.type2speak",
+  "appName": "type2speak",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "linuxAndroidStudioPath": "/opt/android-studio/bin/studio.sh",
+  "CAPACITOR_ANDROID_STUDIO_PATH": "/opt/android-studio/bin/studio.sh",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  }
+}
