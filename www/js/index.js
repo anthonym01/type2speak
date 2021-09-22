@@ -11,6 +11,10 @@ App.addListener('backButton', () => {//back button on android
 
 let wait = [];
 
+(function(){//set history
+
+});
+
 window.addEventListener('load', async function () {
 
     try {
@@ -25,7 +29,7 @@ window.addEventListener('load', async function () {
 
 let config = {
     data: {//Loacal app data
-
+        
     },
     save: async function () {//Save the config file
         console.warn('Configuration is being saved')
