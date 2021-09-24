@@ -1,3 +1,9 @@
+/*
+Relies completely on Web Speech API and capacitor.js
+- https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API
+- https://capacitorjs.com/
+*/
+
 const { App, Camera, Toast, Storage } = Capacitor.Plugins;
 
 
@@ -11,26 +17,26 @@ App.addListener('backButton', () => {//back button on android
 
 let wait = [];
 
-(function(){//set history
+let history = [];
 
-});
+let config = {
+
+}
+
+let favourites = []
 
 window.addEventListener('load', async function () {
 
-    try {
-        await config.load()
-    } catch (err) {
-        console.warn('Something bad happened: ', err)
-    } finally {
+    (function () {//set history
 
-    }
-
+    });
 })
 
 let config = {
     data: {//Loacal app data
-        
+
     },
+
     save: async function () {//Save the config file
         console.warn('Configuration is being saved')
         Storage.set({ key: 'basicb', value: JSON.stringify(config.data) });
@@ -68,24 +74,22 @@ document.getElementById('textput').addEventListener('keypress', function (e) {
     wait.push(waitaction)
 })
 
-document.getElementById('forceblurt').addEventListener('click',function(){
+document.getElementById('forceblurt').addEventListener('click', function () {
     blurt(document.getElementById('textput').value)
 })
 
-async function blurt (spookvalue) {
-    console.log("Blurt: ",spookvalue)
-    var synth = window.speechSynthesis;
+async function blurt(spookvalue) {
+    console.log("Blurt: ", spookvalue)
+    
+    let synth = window.speechSynthesis;
+    synth.pause()
 
-    //e.preventDefault();
+    let utterThis = new SpeechSynthesisUtterance(spookvalue);
 
-    var utterThis = new SpeechSynthesisUtterance(spookvalue);
-    /*var selectedOption = voiceSelect.selectedOptions[0].getAttribute('data-name');
-    for (i = 0; i < voices.length; i++) {
-        if (voices[i].name === selectedOption) {
-            utterThis.voice = voices[i];
-        }
-    }*/
+    utterThis.pa
     synth.speak(utterThis);
-
+    synth.addEventListener('voiceschanged', function () {
+        console.log(' handle voice chage')
+    })
 
 }
