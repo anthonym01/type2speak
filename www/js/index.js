@@ -4,26 +4,28 @@ Relies completely on Web Speech API and capacitor.js
 - https://capacitorjs.com/
 */
 
-const { App, Camera, Toast, Storage } = Capacitor.Plugins;
+const { App, Toast, Storage } = Capacitor.Plugins;
 
 
 App.addListener('appStateChange', ({ isActive }) => {// app state is changed, usually sent to the background or suspended
     console.warn('App state changed. Is active: ', isActive);
+   /* if(!isActive){
+        window.speechSynthesis.pause()
+    }*/
 });
 
 App.addListener('backButton', () => {//back button on android
     console.warn('back button pressed')
 })
 
-let wait = [];
 
-let history = [];
+
+
+let favourites = []
 
 let config = {
 
 }
-
-let favourites = []
 
 window.addEventListener('load', async function () {
 
@@ -31,7 +33,7 @@ window.addEventListener('load', async function () {
 
     });
 })
-
+/*
 let config = {
     data: {//Loacal app data
 
@@ -60,8 +62,9 @@ let config = {
         console.table(config.data)
     }
 }
+*/
 
-
+let wait = [];
 document.getElementById('textput').addEventListener('keypress', function (e) {
     console.log(e.key)
     for (let i in wait) {
@@ -82,14 +85,22 @@ async function blurt(spookvalue) {
     console.log("Blurt: ", spookvalue)
     
     let synth = window.speechSynthesis;
-    synth.pause()
+    //synth.pause()
 
     let utterThis = new SpeechSynthesisUtterance(spookvalue);
 
-    utterThis.pa
+    //utterThis.pa
     synth.speak(utterThis);
     synth.addEventListener('voiceschanged', function () {
         console.log(' handle voice chage')
     })
+
+histoize(spookvalue)
+
+}
+
+let history = [];
+
+async function histoize(datum){
 
 }
