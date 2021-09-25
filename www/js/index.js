@@ -9,9 +9,9 @@ const { App, Toast, Storage } = Capacitor.Plugins;
 
 App.addListener('appStateChange', ({ isActive }) => {// app state is changed, usually sent to the background or suspended
     console.warn('App state changed. Is active: ', isActive);
-   /* if(!isActive){
-        window.speechSynthesis.pause()
-    }*/
+    /* if(!isActive){
+         window.speechSynthesis.pause()
+     }*/
 });
 
 App.addListener('backButton', () => {//back button on android
@@ -29,8 +29,11 @@ let config = {
 
 window.addEventListener('load', async function () {
 
-    (function () {//set history
-
+    (async function () {//set history
+        let hold = await Storage.get({ key: 'spokenhistory' })
+        if (hold.value != null) {
+            spokenhistory = JSON.parse(hold)
+        }
     });
 })
 /*
@@ -83,7 +86,7 @@ document.getElementById('forceblurt').addEventListener('click', function () {
 
 async function blurt(spookvalue) {
     console.log("Blurt: ", spookvalue)
-    
+
     let synth = window.speechSynthesis;
     //synth.pause()
 
@@ -95,12 +98,18 @@ async function blurt(spookvalue) {
         console.log(' handle voice chage')
     })
 
-histoize(spookvalue)
+    histoize(spookvalue);
 
 }
 
-let history = [];
+let spokenhistory = [];
 
-async function histoize(datum){
+async function histoize(datum) {
+    spokenhistory.push(datum)
 
+    for (let i = spokenhistory.length-1; i > -1; i--) {
+        console.log('History elm ',1, spokenhistory[i])
+    }
+
+    Storage.set({ key: 'spokenhistory', value: JSON.stringify(spokenhistory) });
 }
