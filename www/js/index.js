@@ -32,50 +32,18 @@ window.addEventListener('load', async function () {
     (async function () {//set history
         let hold = await Storage.get({ key: 'spokenhistory' })
         if (hold.value != null) {
-            spokenhistory = JSON.parse(hold)
+            spokenhistory = JSON.parse(hold.value)
         }
     });
 })
-/*
-let config = {
-    data: {//Loacal app data
-
-    },
-
-    save: async function () {//Save the config file
-        console.warn('Configuration is being saved')
-        Storage.set({ key: 'basicb', value: JSON.stringify(config.data) });
-        console.table(config.data)
-    },
-    load: async function () {//Load the config file
-        console.warn('Configuration is being loaded')
-        let fromkey = await Storage.get({ key: 'basicb' })
-        console.log('Loaded: ', fromkey)
-        if (fromkey.value != null) {
-            config.data = JSON.parse(fromkey.value);
-            console.table(config.data)
-        } else {
-            console.warn('configuration loaded is empty')
-        }
-
-    },
-    delete: function () {//Does not delete the file itself. Just sets it to empty
-        Storage.remove({ key: 'basicb' });
-        console.log('config deleted')
-        console.table(config.data)
-    }
-}
-*/
 
 let wait = [];
 document.getElementById('textput').addEventListener('keypress', function (e) {
     console.log(e.key)
-    for (let i in wait) {
-        clearTimeout(wait.pop())
-    }
-    let waitaction = setTimeout(() => {
-        blurt(this.value)
-    }, 1000)
+
+    for (let i in wait) { clearTimeout(wait.pop()) }
+
+    let waitaction = setTimeout(() => { blurt(this.value) }, 1000)
 
     wait.push(waitaction)
 })
@@ -99,7 +67,6 @@ async function blurt(spookvalue) {
     })
 
     histoize(spookvalue);
-
 }
 
 let spokenhistory = [];
@@ -107,8 +74,10 @@ let spokenhistory = [];
 async function histoize(datum) {
     spokenhistory.push(datum)
 
-    for (let i = spokenhistory.length-1; i > -1; i--) {
-        console.log('History elm ',1, spokenhistory[i])
+    document.getElementById('history').innerHTML = "";
+
+    for (let i = spokenhistory.length - 1; i > -1; i--) {
+        console.log('History elm ', i, spokenhistory[i])
     }
 
     Storage.set({ key: 'spokenhistory', value: JSON.stringify(spokenhistory) });
