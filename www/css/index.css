@@ -20,9 +20,24 @@ body {
   height: 9rem;
 }
 
-.histoblock {
+.histocontainer {
   position: relative;
 
 
 
+}
+
+.speakcontainer{
+  position: relative;
+  width: 100%;
+  height: fit-content;
+
+}
+
+#textput{
+  
+}
+
+#forceblurt{
+  
 }

@@ -1,5 +1,5 @@
 /*
-Relies completely on Web Speech API and capacitor.js
+Relies` on Web Speech API and capacitor
 - https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API
 - https://capacitorjs.com/
 */
@@ -12,6 +12,7 @@ App.addListener('appStateChange', ({ isActive }) => {// app state is changed, us
     /* if(!isActive){
          window.speechSynthesis.pause()
      }*/
+
 });
 
 App.addListener('backButton', () => {//back button on android
@@ -35,18 +36,20 @@ window.addEventListener('load', async function () {
             spokenhistory = JSON.parse(hold.value)
         }
     });
-})
+});
 
-let wait = [];
-document.getElementById('textput').addEventListener('keypress', function (e) {
-    console.log(e.key)
+(function () {//text input handling
+    let wait = [];
+    document.getElementById('textput').addEventListener('keypress', function (e) {
+        console.log(e.key)
 
-    for (let i in wait) { clearTimeout(wait.pop()) }
+        for (let i in wait) { clearTimeout(wait.pop()) }
 
-    let waitaction = setTimeout(() => { blurt(this.value) }, 1000)
+        let waitaction = setTimeout(() => { blurt(this.value) }, 1000)
 
-    wait.push(waitaction)
-})
+        wait.push(waitaction)
+    })
+})();
 
 document.getElementById('forceblurt').addEventListener('click', function () {
     blurt(document.getElementById('textput').value)
