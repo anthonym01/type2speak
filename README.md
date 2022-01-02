@@ -1,2 +1,4 @@
 # type2speak
-Simple text to speach assisted speaking prototype/proof of concept
+Ionic static site for basic text to speech, depends upon systems speech dispatching/ accessibility/text to speach capabilities.
+
+## on mobile
