@@ -6,6 +6,11 @@ Relies` on Web Speech API and capacitor
 
 const { App, Toast, Storage } = Capacitor.Plugins;
 
+let config = {
+    menuposition: true,//top or bottom
+    favourites: [],
+    spokenhistory:[]
+}
 
 App.addListener('appStateChange', ({ isActive }) => {// app state is changed, usually sent to the background or suspended
     console.warn('App state changed. Is active: ', isActive);
@@ -19,26 +24,13 @@ App.addListener('backButton', () => {//back button on android
     console.warn('back button pressed')
 })
 
-
-
-
-let favourites = []
-
-let config = {
-
-}
-
-window.addEventListener('load', async function () {
-
-    (async function () {//set history
-        let hold = await Storage.get({ key: 'spokenhistory' })
-        if (hold.value != null) {
-            spokenhistory = JSON.parse(hold.value)
-        }
-    });
+(async function () {//get configuration
+    let hold = await Storage.get({ key: 'config' })
+    if (hold.value != null) { config = JSON.parse(hold.value) }
 });
 
-(function () {//text input handling
+
+(async function () {//text input handling
     let wait = [];
     document.getElementById('textput').addEventListener('keypress', function (e) {
         console.log(e.key)
@@ -49,11 +41,11 @@ window.addEventListener('load', async function () {
 
         wait.push(waitaction)
     })
-})();
 
-document.getElementById('forceblurt').addEventListener('click', function () {
-    blurt(document.getElementById('textput').value)
-})
+    document.getElementById('forceblurt').addEventListener('click', function () {
+        blurt(document.getElementById('textput').value)
+    })
+})();
 
 async function blurt(spookvalue) {
     console.log("Blurt: ", spookvalue)
@@ -72,16 +64,14 @@ async function blurt(spookvalue) {
     histoize(spookvalue);
 }
 
-let spokenhistory = [];
-
 async function histoize(datum) {
-    spokenhistory.push(datum)
+    config.spokenhistory.push(datum)
 
     document.getElementById('history').innerHTML = "";
 
-    for (let i = spokenhistory.length - 1; i > -1; i--) {
-        console.log('History elm ', i, spokenhistory[i])
+    for (let i = config.spokenhistory.length - 1; i > -1; i--) {
+        console.log('History elm ', i, config.spokenhistory[i])
     }
 
-    Storage.set({ key: 'spokenhistory', value: JSON.stringify(spokenhistory) });
+    Storage.set({ key: 'config', value: JSON.stringify(config) });
 }
