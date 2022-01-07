@@ -21,9 +21,7 @@ body {
 }
 
 .histocontainer {
-  position: relative;
-
-
+position: relative;
 
 }
 
@@ -40,4 +38,8 @@ body {
 
 #forceblurt{
   
+}
+
+.historite{
+  position: relative;
 }

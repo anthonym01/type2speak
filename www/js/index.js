@@ -14,8 +14,13 @@ let config = {
 
 (async function () {//get configuration
     let hold = await Storage.get({ key: 'config' })
-    if (hold.value != null) { config = JSON.parse(hold.value) }
+    if (hold.value != null) { 
+        config = JSON.parse(hold.value);
+        histoize(false);
+    }
 })();
+
+
 
 App.addListener('appStateChange', ({ isActive }) => {// app state is changed, usually sent to the background or suspended
     console.warn('App state changed. Is active: ', isActive);
@@ -64,13 +69,22 @@ async function blurt(spookvalue) {
 }
 
 async function histoize(datum) {
-    config.spokenhistory.push(datum)
+    if (datum != false) {
+        config.spokenhistory.push(datum)
+        Storage.set({ key: 'config', value: JSON.stringify(config) });
+    }
 
     document.getElementById('history').innerHTML = "";
 
     for (let i = config.spokenhistory.length - 1; i > -1; i--) {
         console.log('History elm ', i, config.spokenhistory[i])
+        making_of_history(i, config.spokenhistory[i])
     }
 
-    Storage.set({ key: 'config', value: JSON.stringify(config) });
+    function making_of_history(inxed, spokhistdatum) {
+        let historite = document.createElement('div')
+        historite.setAttribute('class', "historite")
+        historite.innerHTML = spokhistdatum;
+        document.getElementById('history').appendChild(historite)
+    }
 }
