@@ -9,8 +9,13 @@ const { App, Toast, Storage } = Capacitor.Plugins;
 let config = {
     menuposition: true,//top or bottom
     favourites: [],
-    spokenhistory:[]
-}
+    spokenhistory: []
+};
+
+(async function () {//get configuration
+    let hold = await Storage.get({ key: 'config' })
+    if (hold.value != null) { config = JSON.parse(hold.value) }
+})();
 
 App.addListener('appStateChange', ({ isActive }) => {// app state is changed, usually sent to the background or suspended
     console.warn('App state changed. Is active: ', isActive);
@@ -22,13 +27,7 @@ App.addListener('appStateChange', ({ isActive }) => {// app state is changed, us
 
 App.addListener('backButton', () => {//back button on android
     console.warn('back button pressed')
-})
-
-(async function () {//get configuration
-    let hold = await Storage.get({ key: 'config' })
-    if (hold.value != null) { config = JSON.parse(hold.value) }
 });
-
 
 (async function () {//text input handling
     let wait = [];
