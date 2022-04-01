@@ -87,4 +87,4 @@ async function histoize(datum) {
         historite.innerHTML = spokhistdatum;
         document.getElementById('history').appendChild(historite)
     }
-}
+} 
