@@ -6,7 +6,7 @@
   "scripts": {
     "open": "npx cap open android",
     "servewww": "serve ./www",
-    "runandroid":"npx cap run android",
+    "runandroid": "npx cap run android",
     "bundle": "browserify www/js/index.js -o www/js/bundle.js"
   },
   "keywords": [
@@ -15,18 +15,5 @@
   ],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@capacitor/android": "^3.2.0",
-    "@capacitor/app": "^1.0.2",
-    "@capacitor/browser": "^1.0.2",
-    "@capacitor/camera": "latest",
-    "@capacitor/core": "^3.2.0",
-    "@capacitor/splash-screen": "latest",
-    "@capacitor/storage": "^1.0.2",
-    "@capacitor/toast": "^1.0.2",
-    "browserify": "^17.0.0"
-  },
-  "devDependencies": {
-    "@capacitor/cli": "^3.0.0-rc.4"
-  }
+  "dependencies": {}
 }
