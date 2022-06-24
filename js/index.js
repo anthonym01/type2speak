@@ -13,23 +13,38 @@ App.addListener('appStateChange', ({ isActive }) => {// app state is changed, us
      }*/
 
 });
+
+App.addListener('backButton', () => {//back button on android
+    console.warn('back button pressed')
+});
+
 let config = {
     menuposition: true,//top or bottom
     favourites: [],
     spokenhistory: []
 };
 
-(async function () {//get configuration
+
+
+window.addEventListener('load', async function () {// Startup point
+    Navigate.initalize();
     let hold = await Storage.get({ key: 'config' })
     if (hold.value != null) { 
         config = JSON.parse(hold.value);
         histoize(false);
     }
-})();
-
-App.addListener('backButton', () => {//back button on android
-    console.warn('back button pressed')
 });
+
+let Navigate = {
+    initalize: async function(){
+        this.GoToHome();
+    },
+    GoToHome:async function(){
+        document.getElementById('Home_view').style.display = "block"
+    }
+}
+
+let Text
 
 (async function () {//text input handling
     let wait = [];

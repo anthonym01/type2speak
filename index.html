@@ -23,18 +23,26 @@
 
 <body>
 
-  <div class="viewpane">
+  <div class="viewpane" id="Home_view">
+    Home view placeholder
+  </div>
+
+  <div class="viewpane" id="Text_to_speech_view">
+    <div class="speakcontainer">
+      <textarea name="textmanin" id="textput" cols="30" rows="10" placeholder="type to speak"></textarea>
+      <button id="forceblurt">speak</button>
+    </div>
+  
+    <div id="history">
+  
+    </div>
+  </div>
+
+  <div class="viewpane" id="File_to_speech_view">
 
   </div>
 
-  <div class="speakcontainer">
-    <textarea name="textmanin" id="textput" cols="30" rows="10" placeholder="type to speak"></textarea>
-    <button id="forceblurt">speak</button>
-  </div>
 
-  <div id="history">
-
-  </div>
 
   <script src="capacitor.js"></script>
   <script src="js/index.js"></script>
