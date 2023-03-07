@@ -1,15 +1,14 @@
 {
-  "name": "batype2speaksicb",
+  "name": "type2speak",
   "version": "1.0.0",
-  "description": "make something up",
+  "description": ":)",
   "main": "index.js",
   "scripts": {
-    "open": "npx cap open android",
-    "servewww": "serve ./www",
+    "servewww": "serve ./docs",
     "runandroid": "npx cap run android",
     "bundle": "browserify www/js/index.js -o www/js/bundle.js"
   },
-  "keywords": [
+  "keywords": [             
     "capacitor",
     "mobile"
   ],

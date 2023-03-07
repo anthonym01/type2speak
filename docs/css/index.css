@@ -1,3 +1,4 @@
+
 :root {
   --background_color: white;
   --text_color: black;
@@ -11,12 +12,15 @@ body {
   background-color: var(--background_color);
 }
 
-.viewpane{
+.viewpane,.viewpane_visible{
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
+  display: none;
+}.viewpane_visible{
+  display: block;
 }
 
 #history {
