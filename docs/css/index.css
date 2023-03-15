@@ -1,4 +1,3 @@
-
 :root {
   --background_color: white;
   --text_color: black;
@@ -12,14 +11,17 @@ body {
   background-color: var(--background_color);
 }
 
-.viewpane,.viewpane_visible{
+.viewpane,
+.viewpane_visible {
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
   display: none;
-}.viewpane_visible{
+}
+
+.viewpane_visible {
   display: block;
 }
 
@@ -33,25 +35,21 @@ body {
 }
 
 .histocontainer {
-position: relative;
+  position: relative;
 
 }
 
-.speakcontainer{
+.speakcontainer {
   position: relative;
   width: 100%;
   height: fit-content;
 
 }
 
-#textput{
-  
-}
+#textput {}
 
-#forceblurt{
-  
-}
+#forceblurt {}
 
-.historite{
+.historite {
   position: relative;
 }
