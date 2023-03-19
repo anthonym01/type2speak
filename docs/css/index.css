@@ -53,3 +53,17 @@ body {
 .historite {
   position: relative;
 }
+
+.speak_button{
+  all: unset;
+  position: fixed;
+  bottom: 0.5rem;
+  width: 90vw;
+  left: 5vw;
+  height: fit-content;
+  background-color: rgb(0, 229, 255);
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 1.7rem;
+  border-radius: 0.4rem;
+}
