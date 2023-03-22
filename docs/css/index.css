@@ -54,7 +54,11 @@ body {
   position: relative;
 }
 
-.speak_button{
+
+/* 
+  Main speach button
+*/
+.speak_button {
   all: unset;
   position: fixed;
   bottom: 0.5rem;
