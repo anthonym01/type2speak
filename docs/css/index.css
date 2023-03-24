@@ -76,6 +76,13 @@ body {
   font-size: 1.7rem;
   border-radius: 0.4rem;
 }
+.speak_button:hover{
+
+}
+
+.speak_button:active{
+  
+}
 
 .speak_button_label {
   line-height: auto;
