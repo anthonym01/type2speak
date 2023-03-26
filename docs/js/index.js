@@ -28,7 +28,6 @@ let config = {
 
 
 window.addEventListener('load', async function () {// Startup point
-    Navigate.initalize();
     let hold = await Storage.get({ key: 'config' })
     if (hold.value != null) {
         config = JSON.parse(hold.value);
@@ -36,16 +35,7 @@ window.addEventListener('load', async function () {// Startup point
     }
 });
 
-let Navigate = {
-    initalize: async function () {
-        this.GoToHome();
-    },
-    GoToHome: async function () {
-        document.getElementById('Home_view').style.display = "block"
-    }
-}
-
-let Text
+let Text;
 
 (async function () {//text input handling
     let wait = [];

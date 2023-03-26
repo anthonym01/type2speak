@@ -1,6 +1,7 @@
 :root {
   --background_color: white;
   --text_color: black;
+  --accent-color: rgb(0, 229, 255);
 }
 
 @font-face {
@@ -51,9 +52,19 @@ body {
 
 }
 
-#textput {}
+#textput {
+  position: relative;
+  width: 95vw;
+  margin-left: 2.5vw;
+  margin-right: auto;
+  min-height: 5rem;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  border: 0.2rem solid var(--accent-color);
+  border-radius: 0.4rem;
+}
 
-#forceblurt {}
 
 .historite {
   position: relative;
@@ -77,20 +88,18 @@ body {
   border-radius: 0.6rem;
 }
 
-.speak_button:hover{
+.speak_button:hover {}
 
-}
-
-.speak_button:active{
-  
-}
+.speak_button:active {}
 
 .speak_button_label {
   line-height: auto;
   text-align: center;
   font-size: 2rem;
   font-family: Lexend_Deca;
-  width: calc(100% - 3.5rem);white-space: nowrap;
+  width: calc(100% - 3.5rem);
+  white-space: nowrap;
+  font-family: Lexend_Deca;
 }
 
 .speak_button_icon {
