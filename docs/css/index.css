@@ -74,8 +74,9 @@ body {
   box-sizing: border-box;
   text-align: center;
   font-size: 1.7rem;
-  border-radius: 0.4rem;
+  border-radius: 0.6rem;
 }
+
 .speak_button:hover{
 
 }
