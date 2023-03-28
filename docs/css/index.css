@@ -50,11 +50,13 @@ body {
 .history_container {
   position: relative;
   width: 100%;
+  height: fit-content;
 }
 
 .favourites_container {
   position: relative;
   width: 100%;
+  height: fit-content;
 }
 
 .speakcontainer {
