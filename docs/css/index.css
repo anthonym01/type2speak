@@ -4,6 +4,13 @@
   --accent-color: rgb(0, 229, 255);
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background_color: white;
+    --text_color: black;
+    --accent-color: rgb(0, 229, 255);
+  }
+}
 @font-face {
   src: url(../fonts/LexendDeca-Regular.ttf);
   font-family: Lexend_Deca;
@@ -42,7 +49,12 @@ body {
 
 .history_container {
   position: relative;
+  width: 100%;
+}
 
+.favourites_container {
+  position: relative;
+  width: 100%;
 }
 
 .speakcontainer {
@@ -112,5 +124,9 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-image: url('../img/sound-pngrepo-com.png');
+
+}
+
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
 
 }
