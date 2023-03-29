@@ -85,9 +85,9 @@ async function histoize(datum) {
     }
 
     function making_of_history(inxed, spokhistdatum) {
-        let historite = document.createElement('div')
-        historite.setAttribute('class', "historite")
-        historite.innerHTML = spokhistdatum;
-        document.getElementById('history').appendChild(historite)
+        let history_element = document.createElement('div')
+        history_element.setAttribute('class', "history_element")
+        history_element.innerHTML = spokhistdatum;
+        document.getElementById('history').appendChild(history_element)
     }
 } 

@@ -11,6 +11,7 @@
     --accent-color: rgb(0, 229, 255);
   }
 }
+
 @font-face {
   src: url(../fonts/LexendDeca-Regular.ttf);
   font-family: Lexend_Deca;
@@ -38,27 +39,7 @@ body {
   display: block;
 }
 
-#history {
-  position: relative;
-  width: 100%;
-  max-height: 200vh;
-  margin: 0;
-  box-sizing: border-box;
-  height: 9rem;
-}
-
-.history_container {
-  position: relative;
-  width: 100%;
-  height: fit-content;
-}
-
-.favourites_container {
-  position: relative;
-  width: 100%;
-  height: fit-content;
-}
-
+/* Text input area */
 .speakcontainer {
   position: relative;
   width: 100%;
@@ -68,6 +49,7 @@ body {
 
 #textput {
   position: relative;
+  padding: 0.3rem;
   all: unset;
   width: 95vw;
   margin-left: 2.5vw;
@@ -80,12 +62,35 @@ body {
   margin-bottom: 1rem;
   border: 0.2rem solid var(--accent-color);
   border-radius: 0.4rem;
+  text-align: center;
 }
 
+.mid-space {
+  /* contains history and favourites container and lets page flow correctly on firefox */
+  position: relative;
 
-.historite {
+}
+
+.history_container {
+  position: relative;
+  width: 100%;
+  height: fit-content;
+}
+
+#history {}
+
+.history_element {
   position: relative;
 }
+
+.favourites_container {
+  position: relative;
+  width: 100%;
+  height: fit-content;
+}
+
+
+
 
 
 /* 
@@ -133,15 +138,26 @@ body {
 }
 
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
-  .history_container {
+  .mid-space {
+    /* contains history and favourites container and lets page flow correctly on firefox */
     position: relative;
+    height: calc(100vh - 3.5rem - 15rem);
     width: 100%;
-    height: fit-content;
   }
-  
+
+  .history_container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+  }
+
   .favourites_container {
-    position: relative;
-    width: 100%;
-    height: fit-content;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
   }
 }
