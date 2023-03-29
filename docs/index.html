@@ -23,9 +23,6 @@
 
 <body>
 
-  <div class="viewpane" id="Home_view">
-    Home view placeholder
-  </div>
 
   <div class="viewpane_visible" id="Text_to_speech_view">
 
@@ -36,11 +33,17 @@
     </div>
 
     <div class="favourites_container">
-      favourites placeholder
+      <h2>Favourites</h2>
+      <div id="favourites">
+
+      </div>
     </div>
     
-    <div class="history_container" id="history">
+    <div class="history_container">
+      <h2>History</h2>
+      <div id="history">
 
+      </div>
     </div>
 
     <button class="speak_button" id="speak_btn">
@@ -49,12 +52,6 @@
     </button>
 
   </div>
-
-  <div class="viewpane" id="File_to_speech_view">
-
-  </div>
-
-
 
   <script src="capacitor.js"></script>
   <script src="js/index.js"></script>
