@@ -133,5 +133,15 @@ body {
 }
 
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
-
+  .history_container {
+    position: relative;
+    width: 100%;
+    height: fit-content;
+  }
+  
+  .favourites_container {
+    position: relative;
+    width: 100%;
+    height: fit-content;
+  }
 }
