@@ -2,7 +2,8 @@
   --background_color: white;
   --text_color: black;
   --accent-color: rgb(0, 229, 255);
-  --speaker_image:url('../img/sound-pngrepo-com.png');
+  --inversion: invert(0);
+  --speaker_image: url('../img/sound-pngrepo-com.png');
 }
 
 @media (prefers-color-scheme: dark) {
@@ -10,7 +11,8 @@
     --background_color: rgb(0, 0, 0);
     --text_color: rgb(255, 255, 255);
     --accent-color: rgb(0, 229, 255);
-    --speaker_image:url('../img/sound-pngrepo-com.png');
+    --speaker_image: url('../img/sound-pngrepo-com.png');
+    --inversion: invert(1);
   }
 }
 
@@ -25,6 +27,7 @@ body {
   margin: 0;
   color: var(--text_color);
   background-color: var(--background_color);
+
 }
 
 .viewpane,
@@ -97,6 +100,10 @@ body {
   height: fit-content;
 }
 
+.favourites_container h2,
+.history_container h2 {
+  text-align: center;
+}
 
 
 
@@ -104,6 +111,22 @@ body {
 /* 
   Main speach button
 */
+
+@keyframes wiggle {
+  0% {
+    rotate: z 0deg;
+  }
+  33% {
+    rotate: z 15deg;
+  }
+  66% {
+    rotate: z -15deg;
+  }
+  100% {
+    rotate: z 0deg;
+  }
+}
+
 .speak_button {
   all: unset;
   position: fixed;
@@ -117,11 +140,20 @@ body {
   font-size: 1.7rem;
   border-radius: 0.6rem;
   text-shadow: 0rem 0rem 0.3rem var(--background_color);
+  box-shadow: 0rem 0rem 0rem 0rem var(--text_color);
+  cursor: pointer;
+  transform: translateY(0rem);
+  transition: transform 300ms;
 }
 
-.speak_button:hover {}
+.speak_button:hover {
+  box-shadow: 0rem 0.1rem 0.5rem 0rem var(--text_color);
+}
 
-.speak_button:active {}
+.speak_button:active {
+  transform: translateY(0.2rem);
+  transition: transform 0ms;
+}
 
 .speak_button_label {
   line-height: auto;
@@ -142,10 +174,14 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url('../img/sound-pngrepo-com.png');
+  background-image: var(--speaker_image);
+  filter: var(--inversion);
+  animation: wiggle 500ms ease 0ms 0;
 
 }
-
+.speak_button:hover .speak_button_icon{
+  animation: wiggle 500ms ease 0ms infinite;
+}
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
   .mid-space {
     /* contains history and favourites container and lets page flow correctly on firefox */
