@@ -38,11 +38,12 @@ window.addEventListener('load', async function () {// Startup point
 let Text;
 
 (async function () {//text input handling
-    let wait = [];
+    let wait = [];//stores key inputs for a short time
+
     document.getElementById('textput').addEventListener('keypress', function (e) {
         console.log(e.key)
 
-        for (let i in wait) { clearTimeout(wait.pop()) }
+        for (let i in wait) { clearTimeout(wait.pop()) }//remove old /waiting key inputs
 
         let waitaction = setTimeout(() => { blurt(this.value) }, 1000)
 
@@ -77,7 +78,7 @@ async function histoize(datum) {
         Storage.set({ key: 'config', value: JSON.stringify(config) });
     }
 
-    document.getElementById('history').innerHTML = "";
+    document.getElementById('history_content').innerHTML = "";
 
     for (let i = config.spokenhistory.length - 1; i > -1; i--) {
         console.log('History elm ', i, config.spokenhistory[i])

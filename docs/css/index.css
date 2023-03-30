@@ -49,7 +49,6 @@ body {
   position: relative;
   width: 100%;
   height: fit-content;
-
 }
 
 #textput {
@@ -88,7 +87,7 @@ body {
   height: fit-content;
 }
 
-#history {}
+#history_content {}
 
 .history_element {
   position: relative;
@@ -116,12 +115,15 @@ body {
   0% {
     rotate: z 0deg;
   }
+
   33% {
     rotate: z 15deg;
   }
+
   66% {
     rotate: z -15deg;
   }
+
   100% {
     rotate: z 0deg;
   }
@@ -179,9 +181,11 @@ body {
   animation: wiggle 500ms ease 0ms 0;
 
 }
-.speak_button:hover .speak_button_icon{
-  animation: wiggle 500ms ease 0ms infinite;
+
+.speak_button:hover .speak_button_icon {
+  animation: wiggle 500ms ease 0ms 6;
 }
+
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
   .mid-space {
     /* contains history and favourites container and lets page flow correctly on firefox */
