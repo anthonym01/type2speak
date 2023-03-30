@@ -49,7 +49,7 @@ let Text;
         wait.push(waitaction)
     })
 
-    document.getElementById('forceblurt').addEventListener('click', function () {
+    document.getElementById('speak_btn').addEventListener('click', function () {
         blurt(document.getElementById('textput').value)
     })
 })();

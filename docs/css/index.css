@@ -2,13 +2,15 @@
   --background_color: white;
   --text_color: black;
   --accent-color: rgb(0, 229, 255);
+  --speaker_image:url('../img/sound-pngrepo-com.png');
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background_color: white;
-    --text_color: black;
+    --background_color: rgb(0, 0, 0);
+    --text_color: rgb(255, 255, 255);
     --accent-color: rgb(0, 229, 255);
+    --speaker_image:url('../img/sound-pngrepo-com.png');
   }
 }
 
@@ -63,6 +65,12 @@ body {
   border: 0.2rem solid var(--accent-color);
   border-radius: 0.4rem;
   text-align: center;
+  box-shadow: 0rem 0rem 0rem 0rem var(--text_color);
+}
+
+
+#textput:focus {
+  box-shadow: 0rem 0.1rem 0.6rem 0rem var(--text_color);
 }
 
 .mid-space {
@@ -108,6 +116,7 @@ body {
   text-align: center;
   font-size: 1.7rem;
   border-radius: 0.6rem;
+  text-shadow: 0rem 0rem 0.3rem var(--background_color);
 }
 
 .speak_button:hover {}
