@@ -89,6 +89,6 @@ async function histoize(datum) {
         let history_element = document.createElement('div')
         history_element.setAttribute('class', "history_element")
         history_element.innerHTML = spokhistdatum;
-        document.getElementById('history').appendChild(history_element)
+        document.getElementById('history_content').appendChild(history_element)
     }
 } 

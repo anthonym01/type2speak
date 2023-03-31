@@ -25,9 +25,10 @@ html,
 body {
   padding: 0;
   margin: 0;
+  
   color: var(--text_color);
   background-color: var(--background_color);
-
+ user-select: none;
 }
 
 .viewpane,
@@ -63,11 +64,11 @@ body {
   max-height: 15rem;
   font-size: 1.1rem;
   margin-top: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.4rem;
   border: 0.2rem solid var(--accent-color);
   border-radius: 0.4rem;
   text-align: center;
-  box-shadow: 0rem 0rem 0rem 0rem var(--text_color);
+  box-shadow: 0rem 0rem 0rem 0rem var(--text_color);user-select: auto;
 }
 
 
@@ -78,16 +79,24 @@ body {
 .mid-space {
   /* contains history and favourites container and lets page flow correctly on firefox */
   position: relative;
-
+  height: calc(100% - 19rem);
 }
 
 .history_container {
   position: relative;
   width: 100%;
-  height: fit-content;
+  /*height: fit-content;*/
 }
 
-#history_content {}
+#history_content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  justify-items: auto;
+  width: 100%;
+  height: fit-content;
+  min-height: 4rem;
+}
 
 .history_element {
   position: relative;
@@ -102,6 +111,8 @@ body {
 .favourites_container h2,
 .history_container h2 {
   text-align: center;
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
 }
 
 
