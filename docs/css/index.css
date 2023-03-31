@@ -25,10 +25,10 @@ html,
 body {
   padding: 0;
   margin: 0;
-  
+
   color: var(--text_color);
   background-color: var(--background_color);
- user-select: none;
+  user-select: none;
 }
 
 .viewpane,
@@ -68,7 +68,8 @@ body {
   border: 0.2rem solid var(--accent-color);
   border-radius: 0.4rem;
   text-align: center;
-  box-shadow: 0rem 0rem 0rem 0rem var(--text_color);user-select: auto;
+  box-shadow: 0rem 0rem 0rem 0rem var(--text_color);
+  user-select: auto;
 }
 
 
@@ -96,10 +97,15 @@ body {
   width: 100%;
   height: fit-content;
   min-height: 4rem;
+  flex-wrap: wrap;
 }
 
 .history_element {
   position: relative;
+  height: 1.5rem;
+  width: 15rem;
+  background-color: aquamarine;
+  white-space: nowrap;
 }
 
 .favourites_container {
