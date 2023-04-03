@@ -28,7 +28,6 @@ body {
 
   color: var(--text_color);
   background-color: var(--background_color);
-  user-select: none;
 }
 
 .viewpane,
@@ -102,8 +101,9 @@ body {
 
 .history_element {
   position: relative;
-  height: 1.5rem;
-  width: 15rem;
+  height: 2rem;
+  font-size: 1.2rem;
+  width: 90%;
   background-color: aquamarine;
   white-space: nowrap;
 }

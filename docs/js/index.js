@@ -78,7 +78,8 @@ async function histoize(datum) {
         Storage.set({ key: 'config', value: JSON.stringify(config) });
     }
 
-    document.getElementById('history_content').innerHTML = "";
+    //document.getElementById('history_content').innerHTML = "";
+    console.log('Remember to uncomment line above');
 
     for (let i = config.spokenhistory.length - 1; i > -1; i--) {
         console.log('History elm ', i, config.spokenhistory[i])
