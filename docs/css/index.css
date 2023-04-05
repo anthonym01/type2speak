@@ -88,7 +88,8 @@ body {
   /*height: fit-content;*/
 }
 
-#history_content,#favourites_content {
+#history_content,
+#favourites_content {
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -109,6 +110,16 @@ body {
   width: 95%;
   background-color: aquamarine;
   white-space: nowrap;
+  font-size: Lexend_Deca;
+}
+
+.element_title {
+  position: absolute;
+  box-sizing: border-box;
+  text-align: center;
+  position: absolute;
+  top: 0%;
+  left: 0;
 }
 
 .favourites_container {
