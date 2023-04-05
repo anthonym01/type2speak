@@ -88,7 +88,7 @@ body {
   /*height: fit-content;*/
 }
 
-#history_content {
+#history_content,#favourites_content {
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -96,14 +96,17 @@ body {
   width: 100%;
   height: fit-content;
   min-height: 4rem;
+  max-height: calc(100% - 3rem);
   flex-wrap: wrap;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .history_element {
   position: relative;
   height: 2rem;
   font-size: 1.2rem;
-  width: 90%;
+  width: 95%;
   background-color: aquamarine;
   white-space: nowrap;
 }

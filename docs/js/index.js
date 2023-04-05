@@ -73,7 +73,7 @@ async function blurt(spookvalue) {
 }
 
 async function histoize(datum) {
-    if (datum != false) {
+    if (datum != false) {//alows displaying history on first startup
         config.spokenhistory.push(datum)
         Storage.set({ key: 'config', value: JSON.stringify(config) });
     }
