@@ -120,6 +120,8 @@ body {
   position: absolute;
   top: 0%;
   left: 0;
+  font-size: 1.1rem;
+  width: 100%;
 }
 
 .favourites_container {
