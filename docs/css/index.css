@@ -84,7 +84,7 @@ body {
   height: calc(100% - 19rem);
 }
 
-.history_container {
+.favourites_containe,.history_containerr {
   position: relative;
   width: 100%;
   /*height: fit-content;*/
@@ -136,11 +136,6 @@ body {
   height: 2rem;
 }
 
-.favourites_container {
-  position: relative;
-  width: 100%;
-  height: fit-content;
-}
 
 .favourites_container h2,
 .history_container h2 {
