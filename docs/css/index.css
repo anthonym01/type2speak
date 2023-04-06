@@ -79,7 +79,7 @@ body {
 }
 
 .mid-space {
-  /* contains history and favourites container and lets page flow correctly on firefox */
+  /* holds history and favourites container and lets page flow correctly on firefox */
   position: relative;
   height: calc(100% - 19rem);
 }
@@ -92,6 +92,7 @@ body {
 
 #history_content,
 #favourites_content {
+  /* Lazy half and half for history and favourites */
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -99,13 +100,14 @@ body {
   width: 100%;
   height: fit-content;
   min-height: 4rem;
-  max-height: calc(100% - 3rem);
+  max-height: calc(100% - 3rem);/* Height of h2 tag*/
   flex-wrap: wrap;
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
 .history_element {
+  /* An element of history :D */
   position: relative;
   height: 2rem;
   font-size: 1.2rem;
