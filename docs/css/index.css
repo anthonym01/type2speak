@@ -10,13 +10,14 @@
   :root {
     --background_color: rgb(0, 0, 0);
     --text_color: rgb(255, 255, 255);
-    --accent-color: rgb(0, 229, 255);
+    --accent-color: rgb(17, 0, 255);
     --speaker_image: url('../img/sound-pngrepo-com.png');
     --inversion: invert(1);
   }
 }
 
 @font-face {
+  /* Easy to read */
   src: url(../fonts/LexendDeca-Regular.ttf);
   font-family: Lexend_Deca;
 }
@@ -32,6 +33,7 @@ body {
 
 .viewpane,
 .viewpane_visible {
+  /* main views*/
   position: fixed;
   top: 0;
   left: 0;
@@ -124,7 +126,7 @@ body {
   height: 100%;
 }
 
-.element_controls{
+.element_controls {
   position: absolute;
   top: 0%;
   right: 0;
@@ -149,7 +151,7 @@ body {
 
 
 /* 
-  Main speach button
+  Main speech button
 */
 
 @keyframes wiggle {
