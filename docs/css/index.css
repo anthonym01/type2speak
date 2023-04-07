@@ -84,10 +84,19 @@ body {
   height: calc(100% - 19rem);
 }
 
-.favourites_containe,.history_containerr {
+.favourites_containe,
+.history_containerr {
   position: relative;
   width: 100%;
   /*height: fit-content;*/
+}
+
+
+.favourites_container h2,
+.history_container h2 {
+  text-align: center;
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
 }
 
 #history_content,
@@ -100,7 +109,8 @@ body {
   width: 100%;
   height: fit-content;
   min-height: 4rem;
-  max-height: calc(100% - 3rem);/* Height of h2 tag*/
+  max-height: calc(100% - 3rem);
+  /* Height of h2 tag*/
   flex-wrap: wrap;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -134,14 +144,6 @@ body {
   right: 0;
   width: 4rem;
   height: 2rem;
-}
-
-
-.favourites_container h2,
-.history_container h2 {
-  text-align: center;
-  margin-top: 0.4rem;
-  margin-bottom: 0.4rem;
 }
 
 
