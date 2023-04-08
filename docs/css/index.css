@@ -156,7 +156,13 @@ body {
   height: 2rem;
   opacity: 0;
 }
-
+.add_to_favourite{
+  position: absolute;top: 0;
+  left: 0;
+  height: 2rem;
+  width: 2rem;
+  
+}
 
 
 
