@@ -163,9 +163,15 @@ body {
   left: 0;
   height: 2rem;
   width: 2rem;
-
 }
 
+.remove_element {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2rem;
+  width: 2rem;
+}
 
 
 /* 
