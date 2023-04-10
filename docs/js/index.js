@@ -78,8 +78,8 @@ async function histoize(datum) {
         Storage.set({ key: 'config', value: JSON.stringify(config) });
     }
 
-    //document.getElementById('history_content').innerHTML = "";
-    console.log('Remember to uncomment line above');
+    document.getElementById('history_content').innerHTML = "";
+
 
     for (let i = config.spokenhistory.length - 1; i > -1; i--) {
         console.log('History elm ', i, config.spokenhistory[i])
@@ -101,7 +101,18 @@ async function histoize(datum) {
         history_element.appendChild(element_controls)
 
         let add_to_favourite_trigger = document.createElement('div')
-        add_to_favourite_trigger.setAttribute('class', "element_controls")
+        add_to_favourite_trigger.setAttribute('class', "add_to_favourite")
+        add_to_favourite_trigger.addEventListener('click',function(event){
+            console.log('Clicked add to favourite: ',inxed)
+        })
+        element_controls.appendChild(add_to_favourite_trigger)
+
+        let remove_element_trigger = document.createElement('div')
+        remove_element_trigger.setAttribute('class', "remove_element")
+        remove_element_trigger.addEventListener('click',function(event){
+            console.log('Clicked remove history element: ',inxed)
+        })
+        element_controls.appendChild(remove_element_trigger)
 
         document.getElementById('history_content').appendChild(history_element)
     }

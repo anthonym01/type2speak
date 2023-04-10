@@ -128,7 +128,7 @@ body {
   width: 95%;
   white-space: nowrap;
   font-size: Lexend_Deca;
-  cursor: pointer;
+  padding-bottom: 0.6rem;
 }
 
 .history_element:hover .element_controls {
@@ -144,12 +144,21 @@ body {
   position: absolute;
   top: 0%;
   left: 0;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   width: calc(100% - 4.5rem);
   height: 2rem;
   font-size: Lexend_Deca;
   box-sizing: border-box;
   padding-left: 1rem;
+  cursor: pointer;
+  transition: font-size 300ms, padding-left 300ms, line-height 300ms;
+}
+
+.element_title:hover {
+  font-size: 1.5rem;
+  padding-left: 1.4rem;
+  line-height: 1.7rem;
+  transition: font-size 100ms, padding-left 100ms, line-height 100ms;
 }
 
 .element_controls {
@@ -161,6 +170,7 @@ body {
   height: 2rem;
   opacity: 0;
   transition: opacity 300ms;
+
 }
 
 .add_to_favourite {
@@ -174,6 +184,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  cursor: pointer;
 }
 
 .remove_element {
@@ -187,6 +198,7 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   filter: var(--inversion);
+  cursor: pointer;
 }
 
 
