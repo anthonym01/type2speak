@@ -89,7 +89,20 @@ async function histoize(datum) {
     function making_of_history(inxed, spokhistdatum) {
         let history_element = document.createElement('div')
         history_element.setAttribute('class', "history_element")
-        history_element.innerHTML = spokhistdatum;
+        //history_element.innerHTML = spokhistdatum;
+
+        let element_title = document.createElement('div')
+        element_title.setAttribute('class', "element_title")
+        element_title.innerHTML = spokhistdatum
+        history_element.appendChild(element_title)
+        
+        let element_controls = document.createElement('div')
+        element_controls.setAttribute('class', "element_controls")
+        history_element.appendChild(element_controls)
+
+        let add_to_favourite_trigger = document.createElement('div')
+        add_to_favourite_trigger.setAttribute('class', "element_controls")
+
         document.getElementById('history_content').appendChild(history_element)
     }
 } 

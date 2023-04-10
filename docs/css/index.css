@@ -2,8 +2,10 @@
   --background_color: white;
   --text_color: black;
   --accent-color: rgb(0, 229, 255);
-  --inversion: invert(0);
   --speaker_image: url('../img/sound-pngrepo-com.png');
+  --heart_image: url('../img/heart-pngrepo-com.png');
+  --trash_image: url('../img/trash-pngrepo-com.png');
+  --inversion: invert(0);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -12,6 +14,8 @@
     --text_color: rgb(255, 255, 255);
     --accent-color: rgb(0, 153, 255);
     --speaker_image: url('../img/sound-pngrepo-com.png');
+    --heart_image: url('../img/heart-pngrepo-com.png');
+    --trash_image: url('../img/trash-pngrepo-com.png');
     --inversion: invert(1);
   }
 }
@@ -129,6 +133,7 @@ body {
 
 .history_element:hover .element_controls {
   opacity: 1;
+  transition: opacity 0ms 50ms;
 }
 
 .element_title {
@@ -140,7 +145,7 @@ body {
   top: 0%;
   left: 0;
   font-size: 1.5rem;
-  width: calc(100% - 4rem);
+  width: calc(100% - 4.5rem);
   height: 2rem;
   font-size: Lexend_Deca;
   box-sizing: border-box;
@@ -152,17 +157,23 @@ body {
   position: absolute;
   top: 0%;
   right: 0;
-  width: 4rem;
+  width: 4.5rem;
   height: 2rem;
   opacity: 0;
+  transition: opacity 300ms;
 }
 
 .add_to_favourite {
+  /*button to add to favourites*/
   position: absolute;
   top: 0;
   left: 0;
   height: 2rem;
   width: 2rem;
+  background-image: var(--heart_image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .remove_element {
@@ -171,6 +182,11 @@ body {
   right: 0;
   height: 2rem;
   width: 2rem;
+  background-image: var(--trash_image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  filter: var(--inversion);
 }
 
 
