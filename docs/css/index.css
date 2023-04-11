@@ -67,7 +67,7 @@ body {
   min-height: 11rem;
   height: 13rem;
   max-height: 15rem;
-  font-size: 1.1rem;
+  font-size: 1.8rem;
   margin-top: 0.5rem;
   margin-bottom: 0.4rem;
   border: 0.2rem solid var(--accent-color);
@@ -151,14 +151,22 @@ body {
   box-sizing: border-box;
   padding-left: 1rem;
   cursor: pointer;
-  transition: font-size 300ms, padding-left 300ms, line-height 300ms;
+  transition: font-size 300ms, transform 300ms, padding-left 300ms, line-height 300ms;
+  transform: translateY(0rem);
 }
 
 .element_title:hover {
   font-size: 1.5rem;
   padding-left: 1.4rem;
   line-height: 1.7rem;
-  transition: font-size 100ms, padding-left 100ms, line-height 100ms;
+  transition: font-size 100ms, transform 300ms, padding-left 100ms, line-height 100ms;
+}
+
+.element_title:active {
+  transform: translateY(0.3rem);
+  transition: font-size 300ms, transform 0ms, padding-left 300ms, line-height 300ms;
+
+
 }
 
 .element_controls {

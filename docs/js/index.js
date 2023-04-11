@@ -115,6 +115,7 @@ async function histoize(datum) {
 
         element_title.addEventListener('click', function (event) {
             console.log('Clicked titile: ', inxed)
+            document.getElementById('textput').value = spokhistdatum
         })
 
         remove_element_trigger.addEventListener('click', function (event) {
