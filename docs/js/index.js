@@ -73,6 +73,9 @@ async function blurt(spookvalue) {
 }
 
 async function histoize(datum) {
+    /*
+        Handle history and certain favourite interactions
+    */
     if (datum != false) {//alows displaying history on first startup
         config.spokenhistory.push(datum)
         Storage.set({ key: 'config', value: JSON.stringify(config) });
@@ -102,18 +105,24 @@ async function histoize(datum) {
 
         let add_to_favourite_trigger = document.createElement('div')
         add_to_favourite_trigger.setAttribute('class', "add_to_favourite")
-        add_to_favourite_trigger.addEventListener('click', function (event) {
-            console.log('Clicked add to favourite: ', inxed)
-        })
         element_controls.appendChild(add_to_favourite_trigger)
 
         let remove_element_trigger = document.createElement('div')
         remove_element_trigger.setAttribute('class', "remove_element")
-        remove_element_trigger.addEventListener('click', function (event) {
-            console.log('Clicked remove history element: ', inxed)
-        })
         element_controls.appendChild(remove_element_trigger)
 
         document.getElementById('history_content').appendChild(history_element)
+
+        element_title.addEventListener('click', function (event) {
+            console.log('Clicked titile: ', inxed)
+        })
+
+        remove_element_trigger.addEventListener('click', function (event) {
+            console.log('Clicked remove history element: ', inxed)
+        })
+
+        add_to_favourite_trigger.addEventListener('click', function (event) {
+            console.log('Clicked add to favourite: ', inxed)
+        })
     }
 } 
