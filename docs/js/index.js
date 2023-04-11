@@ -95,22 +95,22 @@ async function histoize(datum) {
         element_title.setAttribute('class', "element_title")
         element_title.innerHTML = spokhistdatum
         history_element.appendChild(element_title)
-        
+
         let element_controls = document.createElement('div')
         element_controls.setAttribute('class', "element_controls")
         history_element.appendChild(element_controls)
 
         let add_to_favourite_trigger = document.createElement('div')
         add_to_favourite_trigger.setAttribute('class', "add_to_favourite")
-        add_to_favourite_trigger.addEventListener('click',function(event){
-            console.log('Clicked add to favourite: ',inxed)
+        add_to_favourite_trigger.addEventListener('click', function (event) {
+            console.log('Clicked add to favourite: ', inxed)
         })
         element_controls.appendChild(add_to_favourite_trigger)
 
         let remove_element_trigger = document.createElement('div')
         remove_element_trigger.setAttribute('class', "remove_element")
-        remove_element_trigger.addEventListener('click',function(event){
-            console.log('Clicked remove history element: ',inxed)
+        remove_element_trigger.addEventListener('click', function (event) {
+            console.log('Clicked remove history element: ', inxed)
         })
         element_controls.appendChild(remove_element_trigger)
 
