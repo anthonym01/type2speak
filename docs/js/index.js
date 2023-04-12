@@ -113,12 +113,12 @@ async function histoize(datum) {
 
         document.getElementById('history_content').appendChild(history_element)
 
-        element_title.addEventListener('click', function (event) {
+        element_title.addEventListener('click', function (event) {//copy old history
             console.log('Clicked titile: ', inxed)
             document.getElementById('textput').value = spokhistdatum
         })
 
-        remove_element_trigger.addEventListener('click', function (event) {
+        remove_element_trigger.addEventListener('click', function (event) {//remove only this from history
             console.log('Clicked remove history element: ', inxed)
         })
 
@@ -130,6 +130,8 @@ async function histoize(datum) {
 }
 
 async function favouritize(newfavourite) {// create favourites via string
+
+    //check if a similar string already exists
     if (newfavourite != false) {
         console.log('Create favourite: ', newfavourite)
         let duplicate = false;
