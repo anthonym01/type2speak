@@ -32,6 +32,7 @@ window.addEventListener('load', async function () {// Startup point
     if (hold.value != null) {
         config = JSON.parse(hold.value);
         histoize(false);
+        favouritize(false);
     }
 });
 
@@ -55,7 +56,7 @@ let Text;
     })
 })();
 
-async function blurt(spookvalue) {
+async function blurt(spookvalue) {// Speak a string value
     console.log("Blurt: ", spookvalue)
 
     let synth = window.speechSynthesis;
@@ -133,8 +134,8 @@ async function histoize(datum) {
 }
 
 async function favouritize(newfavourite) {// create favourites via string
-
-    //check if a similar string already exists
+    /* Create favourites via strings and handle favourite actions */
+    
     if (newfavourite != false) {
         console.log('Create favourite: ', newfavourite)
         let duplicate = false;
@@ -165,38 +166,29 @@ async function favouritize(newfavourite) {// create favourites via string
 
         let element_title = document.createElement('div');
         element_title.setAttribute('class', "element_title");
-        element_title.innerHTML = spokhistdatum;
+        element_title.innerHTML = favouritestring;
         history_element.appendChild(element_title);
 
         let element_controls = document.createElement('div');
         element_controls.setAttribute('class', "element_controls");
         history_element.appendChild(element_controls);
 
-        let add_to_favourite_trigger = document.createElement('div');
-        add_to_favourite_trigger.setAttribute('class', "add_to_favourite");
-        element_controls.appendChild(add_to_favourite_trigger);
-
         let remove_element_trigger = document.createElement('div');
         remove_element_trigger.setAttribute('class', "remove_element");
         element_controls.appendChild(remove_element_trigger);
 
-        document.getElementById('history_content').appendChild(history_element);
+        document.getElementById('favourites_content').appendChild(history_element);
 
         element_title.addEventListener('click', function (event) {//copy old history
             console.log('Clicked titile: ', inxed);
-            document.getElementById('textput').value = spokhistdatum;
+            document.getElementById('textput').value = favouritestring;
         });
 
         remove_element_trigger.addEventListener('click', function (event) {//remove only this from history
             console.log('Clicked remove history element: ', inxed);
-            config.spokenhistory.splice(inxed, 1);//remove
+            config.favourites.splice(inxed, 1);//remove
             Storage.set({ key: 'config', value: JSON.stringify(config) });//save
-            histoize(false);
-        });
-
-        add_to_favourite_trigger.addEventListener('click', function (event) {
-            console.log('Clicked add to favourite: ', inxed);
-            favouritize(spokhistdatum);
+            favouritize(false);
         });
     }
 }
