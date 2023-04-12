@@ -120,6 +120,7 @@ async function histoize(datum) {
 
         remove_element_trigger.addEventListener('click', function (event) {//remove only this from history
             console.log('Clicked remove history element: ', inxed)
+            //look up javascript array methods tomorrow
         })
 
         add_to_favourite_trigger.addEventListener('click', function (event) {
