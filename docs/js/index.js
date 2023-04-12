@@ -124,6 +124,17 @@ async function histoize(datum) {
 
         add_to_favourite_trigger.addEventListener('click', function (event) {
             console.log('Clicked add to favourite: ', inxed)
+            favouritize(spokhistdatum);
         })
     }
-} 
+}
+
+async function favouritize(newfavourite) {// create favourites via string
+    if (newfavourite != false) {
+        console.log('Create favourite: ', newfavourite)
+        let duplicate = false;
+        for (i in config.favourites) {
+
+        }
+    }
+}
