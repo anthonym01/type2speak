@@ -90,45 +90,45 @@ async function histoize(datum) {
     }
 
     function making_of_history(inxed, spokhistdatum) {
-        let history_element = document.createElement('div')
-        history_element.setAttribute('class', "history_element")
+        let history_element = document.createElement('div');
+        history_element.setAttribute('class', "history_element");
         //history_element.innerHTML = spokhistdatum;
 
-        let element_title = document.createElement('div')
-        element_title.setAttribute('class', "element_title")
-        element_title.innerHTML = spokhistdatum
-        history_element.appendChild(element_title)
+        let element_title = document.createElement('div');
+        element_title.setAttribute('class', "element_title");
+        element_title.innerHTML = spokhistdatum;
+        history_element.appendChild(element_title);
 
-        let element_controls = document.createElement('div')
-        element_controls.setAttribute('class', "element_controls")
-        history_element.appendChild(element_controls)
+        let element_controls = document.createElement('div');
+        element_controls.setAttribute('class', "element_controls");
+        history_element.appendChild(element_controls);
 
-        let add_to_favourite_trigger = document.createElement('div')
-        add_to_favourite_trigger.setAttribute('class', "add_to_favourite")
-        element_controls.appendChild(add_to_favourite_trigger)
+        let add_to_favourite_trigger = document.createElement('div');
+        add_to_favourite_trigger.setAttribute('class', "add_to_favourite");
+        element_controls.appendChild(add_to_favourite_trigger);
 
-        let remove_element_trigger = document.createElement('div')
-        remove_element_trigger.setAttribute('class', "remove_element")
-        element_controls.appendChild(remove_element_trigger)
+        let remove_element_trigger = document.createElement('div');
+        remove_element_trigger.setAttribute('class', "remove_element");
+        element_controls.appendChild(remove_element_trigger);
 
-        document.getElementById('history_content').appendChild(history_element)
+        document.getElementById('history_content').appendChild(history_element);
 
         element_title.addEventListener('click', function (event) {//copy old history
-            console.log('Clicked titile: ', inxed)
-            document.getElementById('textput').value = spokhistdatum
-        })
+            console.log('Clicked titile: ', inxed);
+            document.getElementById('textput').value = spokhistdatum;
+        });
 
         remove_element_trigger.addEventListener('click', function (event) {//remove only this from history
-            console.log('Clicked remove history element: ', inxed)
+            console.log('Clicked remove history element: ', inxed);
             config.spokenhistory.splice(inxed, 1);//remove
             Storage.set({ key: 'config', value: JSON.stringify(config) });//save
             histoize(false);
-        })
+        });
 
         add_to_favourite_trigger.addEventListener('click', function (event) {
-            console.log('Clicked add to favourite: ', inxed)
+            console.log('Clicked add to favourite: ', inxed);
             favouritize(spokhistdatum);
-        })
+        });
     }
 }
 
@@ -139,7 +139,64 @@ async function favouritize(newfavourite) {// create favourites via string
         console.log('Create favourite: ', newfavourite)
         let duplicate = false;
         for (i in config.favourites) {
-
+            if (config.favourites[i] == newfavourite) {
+                duplicate = true
+                break;
+            }
         }
+        if (duplicate) {//hilight duplicate
+
+        } else {//save as favourite
+            config.favourites.push(newfavourite)
+            Storage.set({ key: 'config', value: JSON.stringify(config) });//save
+        }
+    }
+
+    //Display favourites
+    for (let i = config.favourites.length - 1; i > -1; i--) {
+        console.log('favourite elm ', i, config.favourites[i])
+        favouritinator(i, config.favourites[i])
+    }
+
+    function favouritinator(inxed, favouritestring) {
+        let history_element = document.createElement('div');
+        history_element.setAttribute('class', "history_element");
+        //history_element.innerHTML = spokhistdatum;
+
+        let element_title = document.createElement('div');
+        element_title.setAttribute('class', "element_title");
+        element_title.innerHTML = spokhistdatum;
+        history_element.appendChild(element_title);
+
+        let element_controls = document.createElement('div');
+        element_controls.setAttribute('class', "element_controls");
+        history_element.appendChild(element_controls);
+
+        let add_to_favourite_trigger = document.createElement('div');
+        add_to_favourite_trigger.setAttribute('class', "add_to_favourite");
+        element_controls.appendChild(add_to_favourite_trigger);
+
+        let remove_element_trigger = document.createElement('div');
+        remove_element_trigger.setAttribute('class', "remove_element");
+        element_controls.appendChild(remove_element_trigger);
+
+        document.getElementById('history_content').appendChild(history_element);
+
+        element_title.addEventListener('click', function (event) {//copy old history
+            console.log('Clicked titile: ', inxed);
+            document.getElementById('textput').value = spokhistdatum;
+        });
+
+        remove_element_trigger.addEventListener('click', function (event) {//remove only this from history
+            console.log('Clicked remove history element: ', inxed);
+            config.spokenhistory.splice(inxed, 1);//remove
+            Storage.set({ key: 'config', value: JSON.stringify(config) });//save
+            histoize(false);
+        });
+
+        add_to_favourite_trigger.addEventListener('click', function (event) {
+            console.log('Clicked add to favourite: ', inxed);
+            favouritize(spokhistdatum);
+        });
     }
 }
