@@ -133,7 +133,7 @@ body {
 
 .history_element:hover .element_controls {
   opacity: 1;
-  transition: opacity 0ms 50ms;
+  transition: opacity 300ms 0ms;
 }
 
 .element_title {
@@ -177,8 +177,8 @@ body {
   width: 4.5rem;
   height: 2rem;
   opacity: 0;
-  transition: opacity 300ms;
-
+  /*transition: opacity 300ms;*/
+  transition: opacity 300ms 0ms;
 }
 
 .add_to_favourite {

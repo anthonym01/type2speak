@@ -145,6 +145,7 @@ async function favouritize(newfavourite) {// create favourites via string
                 break;
             }
         }
+        
         if (duplicate) {//hilight duplicate
 
         } else {//save as favourite
