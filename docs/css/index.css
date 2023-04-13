@@ -44,6 +44,7 @@ body {
   height: 100%;
   width: 100%;
   display: none;
+  overflow-x: auto;
 }
 
 .viewpane_visible {
@@ -88,13 +89,16 @@ body {
   height: calc(100% - 19rem);
 }
 
-.favourites_containe,
-.history_containerr {
+.favourites_container,
+.history_container {
   position: relative;
   width: 100%;
   /*height: fit-content;*/
 }
 
+.history_container {
+  padding-bottom: 4rem;
+}
 
 .favourites_container h2,
 .history_container h2 {
@@ -116,7 +120,7 @@ body {
   max-height: calc(100% - 3rem);
   /* Height of h2 tag*/
   flex-wrap: wrap;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 
@@ -302,6 +306,7 @@ body {
     left: 0;
     width: 50%;
     height: 100%;
+    padding-bottom: 0rem;
   }
 
   .favourites_container {

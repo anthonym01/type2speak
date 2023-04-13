@@ -128,14 +128,14 @@ async function histoize(datum) {
 
         add_to_favourite_trigger.addEventListener('click', function (event) {
             console.log('Clicked add to favourite: ', inxed);
-            favouritize(spokhistdatum);
+            favouritize(config.spokenhistory[inxed]);
         });
     }
 }
 
 async function favouritize(newfavourite) {// create favourites via string
     /* Create favourites via strings and handle favourite actions */
-    
+
     if (newfavourite != false) {
         console.log('Create favourite: ', newfavourite)
         let duplicate = false;
@@ -145,7 +145,7 @@ async function favouritize(newfavourite) {// create favourites via string
                 break;
             }
         }
-        
+
         if (duplicate) {//hilight duplicate
 
         } else {//save as favourite
@@ -154,6 +154,7 @@ async function favouritize(newfavourite) {// create favourites via string
         }
     }
 
+    document.getElementById('favourites_content').innerHTML = "";
     //Display favourites
     for (let i = config.favourites.length - 1; i > -1; i--) {
         console.log('favourite elm ', i, config.favourites[i])
@@ -186,7 +187,7 @@ async function favouritize(newfavourite) {// create favourites via string
         });
 
         remove_element_trigger.addEventListener('click', function (event) {//remove only this from history
-            console.log('Clicked remove history element: ', inxed);
+            console.log('Clicked remove avourite element: ', inxed);
             config.favourites.splice(inxed, 1);//remove
             Storage.set({ key: 'config', value: JSON.stringify(config) });//save
             favouritize(false);
