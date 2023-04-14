@@ -60,9 +60,10 @@ body {
   width: 100%;
   height: fit-content;
 }
-.aboutmarker{
+
+.aboutmarker {
   position: absolute;
-  top: 2.5%;
+  top: 5%;
   left: 2.5%;
   height: 2rem;
   width: 2rem;
@@ -70,13 +71,20 @@ body {
   box-sizing: border-box;
   background-size: contain;
   background-repeat: no-repeat;
-  background-position:center;
+  background-position: center;
   background-image: var(--question_mark);
   filter: var(--inversion);
   z-index: 5;
-  margin: 0.5rem;cursor: pointer;
+  margin: 0.5rem;
+  cursor: pointer;
 }
-.aboutmarker a{height: 100%;width: 100%;display: block;}
+
+.aboutmarker a {
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+
 #textput {
   position: relative;
   padding: 0.3rem;
