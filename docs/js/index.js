@@ -24,9 +24,6 @@ let config = {
     favourites: [],
     spokenhistory: []
 };
-
-
-
 window.addEventListener('load', async function () {// Startup point
     let hold = await Storage.get({ key: 'config' })
     if (hold.value != null) {
@@ -35,8 +32,6 @@ window.addEventListener('load', async function () {// Startup point
         favouritize(false);
     }
 });
-
-let Text;
 
 (async function () {//text input handling
     let wait = [];//stores key inputs for a short time
@@ -138,24 +133,24 @@ async function favouritize(newfavourite) {// create favourites via string
 
     if (newfavourite != false) {
         console.log('Create favourite: ', newfavourite)
+
+        //remove possible old duplicates
         let duplicate = false;
         for (i in config.favourites) {
             if (config.favourites[i] == newfavourite) {
-                duplicate = true
+                duplicate = true;
+                config.favourites.splice(i, 1);
                 break;
             }
         }
 
-        if (duplicate) {//hilight duplicate
-
-        } else {//save as favourite
-            config.favourites.push(newfavourite)
-            Storage.set({ key: 'config', value: JSON.stringify(config) });//save
-        }
+        config.favourites.push(newfavourite)
+        Storage.set({ key: 'config', value: JSON.stringify(config) });//save
     }
 
+    //Display saved favourites
     document.getElementById('favourites_content').innerHTML = "";
-    //Display favourites
+    
     for (let i = config.favourites.length - 1; i > -1; i--) {
         console.log('favourite elm ', i, config.favourites[i])
         favouritinator(i, config.favourites[i])

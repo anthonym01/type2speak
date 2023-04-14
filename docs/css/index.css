@@ -5,6 +5,7 @@
   --speaker_image: url('../img/sound-pngrepo-com.png');
   --heart_image: url('../img/heart-pngrepo-com.png');
   --trash_image: url('../img/trash-pngrepo-com.png');
+  --question_mark: url('../img/question-mark-pngrepo-com.png');
   --inversion: invert(0);
 }
 
@@ -35,6 +36,7 @@ body {
   background-color: var(--background_color);
 }
 
+
 .viewpane,
 .viewpane_visible {
   /* main views*/
@@ -44,7 +46,8 @@ body {
   height: 100%;
   width: 100%;
   display: none;
-  overflow-x: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .viewpane_visible {
@@ -57,13 +60,29 @@ body {
   width: 100%;
   height: fit-content;
 }
-
+.aboutmarker{
+  position: absolute;
+  top: 2.5%;
+  left: 2.5%;
+  height: 2rem;
+  width: 2rem;
+  display: block;
+  box-sizing: border-box;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position:center;
+  background-image: var(--question_mark);
+  filter: var(--inversion);
+  z-index: 5;
+  margin: 0.5rem;cursor: pointer;
+}
+.aboutmarker a{height: 100%;width: 100%;display: block;}
 #textput {
   position: relative;
   padding: 0.3rem;
   all: unset;
-  width: 95vw;
-  margin-left: 2.5vw;
+  width: 95%;
+  margin-left: 2.5%;
   margin-right: auto;
   min-height: 11rem;
   height: 13rem;
