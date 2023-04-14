@@ -22,7 +22,7 @@
 }
 
 @font-face {
-  /* Easy to read */
+  /* Easy to read font*/
   src: url(../fonts/LexendDeca-Regular.ttf);
   font-family: Lexend_Deca;
 }
@@ -31,11 +31,9 @@ html,
 body {
   padding: 0;
   margin: 0;
-
   color: var(--text_color);
   background-color: var(--background_color);
 }
-
 
 .viewpane,
 .viewpane_visible {
