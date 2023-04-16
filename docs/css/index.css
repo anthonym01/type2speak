@@ -12,7 +12,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background_color: rgb(0, 0, 0);
-    --text_color: rgb(255, 255, 255);
+    --text_color: rgb(255, 255, 255); 
     --accent-color: rgb(0, 153, 255);
     --speaker_image: url('../img/sound-pngrepo-com.png');
     --heart_image: url('../img/heart-pngrepo-com.png');
@@ -97,7 +97,7 @@ body {
   margin-top: 0.5rem;
   margin-bottom: 0.4rem;
   border: 0.2rem solid var(--accent-color);
-  border-radius: 0.4rem;
+  border-radius: 0.5rem;
   text-align: center;
   box-shadow: 0rem 0rem 0rem 0rem var(--text_color);
   user-select: auto;
@@ -108,7 +108,7 @@ body {
   box-shadow: 0rem 0.1rem 0.6rem 0rem var(--text_color);
 }
 
-.mid-space {
+.mid-space,.mid-space-with-favourites {
   /* holds history and favourites container and lets page flow correctly on firefox */
   position: relative;
   height: calc(100% - 19rem);

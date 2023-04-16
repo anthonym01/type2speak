@@ -24,6 +24,7 @@ let config = {
     favourites: [],
     spokenhistory: []
 };
+
 window.addEventListener('load', async function () {// Startup point
     let hold = await Storage.get({ key: 'config' })
     if (hold.value != null) {
@@ -128,8 +129,15 @@ async function histoize(datum) {
     }
 }
 
-async function favouritize(newfavourite) {// create favourites via string
+async function favouritize(newfavourite) {
+
     /* Create favourites via strings and handle favourite actions */
+    
+    if(config.favourites.length>0){//pre-existing favourites
+
+    }else{// no existing favourites
+
+    }
 
     if (newfavourite != false) {
         console.log('Create favourite: ', newfavourite)
