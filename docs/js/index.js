@@ -156,6 +156,9 @@ async function favouritize(newfavourite) {
             console.log('favourite elm ', i, config.favourites[i])
             favouritinator(i, config.favourites[i])
         }
+        document.getElementById("mid-space").classList = "mid-space-with-favourites"
+    }else{
+        document.getElementById("mid-space").classList = "mid-space"
     }
 
     function favouritinator(inxed, favouritestring) {

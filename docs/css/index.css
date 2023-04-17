@@ -119,10 +119,15 @@ body {
   position: relative;
   width: 100%;
   /*height: fit-content;*/
+  display: none;
 }
 
 .history_container {
   padding-bottom: 4rem;
+  display: block;
+}
+.mid-space-with-favourites .favourites_container{
+  display: block;
 }
 
 .favourites_container h2,
@@ -343,6 +348,7 @@ body {
     width: 50%;
     height: 100%;
     padding-bottom: 0rem;
+    display: block;
   }
 
   .favourites_container {
@@ -351,5 +357,6 @@ body {
     right: 0;
     width: 50%;
     height: 100%;
+    display: block;
   }
 }
