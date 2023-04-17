@@ -149,6 +149,17 @@ body {
   overflow-x: hidden;
 }
 
+.no_history_modal{
+  line-height: 100%;
+  opacity: 0.5;
+  font-size: 1.1rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
 .history_element {
   /* An element of history :D */
   position: relative;

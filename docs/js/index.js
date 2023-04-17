@@ -132,13 +132,6 @@ async function histoize(datum) {
 async function favouritize(newfavourite) {
 
     /* Create favourites via strings and handle favourite actions */
-    
-    if(config.favourites.length>0){//pre-existing favourites
-
-    }else{// no existing favourites
-
-    }
-
     if (newfavourite != false) {
         console.log('Create favourite: ', newfavourite)
 
@@ -156,12 +149,13 @@ async function favouritize(newfavourite) {
         Storage.set({ key: 'config', value: JSON.stringify(config) });//save
     }
 
-    //Display saved favourites
-    document.getElementById('favourites_content').innerHTML = "";
-    
-    for (let i = config.favourites.length - 1; i > -1; i--) {
-        console.log('favourite elm ', i, config.favourites[i])
-        favouritinator(i, config.favourites[i])
+    if (config.favourites.length > 0) {//pre-existing favourites, Display saved favourites
+        document.getElementById('favourites_content').innerHTML = "";
+
+        for (let i = config.favourites.length - 1; i > -1; i--) {
+            console.log('favourite elm ', i, config.favourites[i])
+            favouritinator(i, config.favourites[i])
+        }
     }
 
     function favouritinator(inxed, favouritestring) {
