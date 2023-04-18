@@ -103,7 +103,6 @@ body {
   user-select: auto;
 }
 
-
 #textput:focus {
   box-shadow: 0rem 0.1rem 0.6rem 0rem var(--text_color);
 }
@@ -173,7 +172,8 @@ body {
   width: 95%;
   white-space: nowrap;
   font-size: Lexend_Deca;
-  padding-bottom: 0.6rem;
+  margin-bottom: 0.6rem;
+  mask-origin: view-box;
 }
 
 .history_element:hover .element_controls {
@@ -293,16 +293,16 @@ body {
   box-shadow: 0rem 0rem 0rem 0rem var(--text_color);
   cursor: pointer;
   transform: translateY(0rem);
-  transition: transform 300ms;
+  transition: transform 300ms,box-shadow 300ms;
 }
 
 .speak_button:hover {
-  box-shadow: 0rem 0.1rem 0.5rem 0rem var(--text_color);
 }
 
 .speak_button:active {
+  box-shadow: 0rem -0.1rem 0.5rem 0rem var(--text_color);
   transform: translateY(0.2rem);
-  transition: transform 0ms;
+  transition: transform 0ms,box-shadow 0ms;
 }
 
 .speak_button_label {
