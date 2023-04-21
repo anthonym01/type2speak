@@ -5,6 +5,8 @@ Relies` on Web Speech API and capacitor
 - https://capacitorjs.com/
 */
 
+const textput = document.getElementById('textput');
+
 const { App, Toast, Storage } = Capacitor.Plugins;
 
 App.addListener('appStateChange', ({ isActive }) => {// app state is changed, usually sent to the background or suspended
@@ -16,7 +18,7 @@ App.addListener('appStateChange', ({ isActive }) => {// app state is changed, us
 });
 
 App.addListener('backButton', () => {//back button on android
-    console.warn('back button pressed')
+    console.warn('back button pressed');
 });
 
 let config = {
@@ -26,7 +28,7 @@ let config = {
 };
 
 window.addEventListener('load', async function () {// Startup point
-    let hold = await Storage.get({ key: 'config' })
+    let hold = await Storage.get({ key: 'config' });
     if (hold.value != null) {
         config = JSON.parse(hold.value);
         histoize(false);
@@ -38,22 +40,20 @@ window.addEventListener('load', async function () {// Startup point
     let wait = [];//stores key inputs for a short time
 
     document.getElementById('textput').addEventListener('keypress', function (e) {
-        console.log(e.key)
+        console.log(e.key);
 
-        for (let i in wait) { clearTimeout(wait.pop()) }//remove old /waiting key inputs
+        for (let i in wait) { clearTimeout(wait.pop()); }//remove old /waiting key inputs
 
-        let waitaction = setTimeout(() => { blurt(this.value) }, 1000)
+        let waitaction = setTimeout(() => { blurt(this.value) }, 1000);//wait 1 second before speaking
 
-        wait.push(waitaction)
+        wait.push(waitaction);//save incase inputs are received after this timer is set
     })
 
-    document.getElementById('speak_btn').addEventListener('click', function () {
-        blurt(document.getElementById('textput').value)
-    })
+    document.getElementById('speak_btn').addEventListener('click', function () { blurt(document.getElementById('textput').value) });
 })();
 
 async function blurt(spookvalue) {// Speak a string value
-    console.log("Blurt: ", spookvalue)
+    console.log("Blurt: ", spookvalue);
 
     let synth = window.speechSynthesis;
     //synth.pause()
