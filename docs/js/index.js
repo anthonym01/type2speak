@@ -63,7 +63,7 @@ async function blurt(spookvalue) {// Speak a string value
     //utterThis.pa
     synth.speak(utterThis);
     synth.addEventListener('voiceschanged', function () {
-        console.log(' handle voice chage')
+        console.log(' handle voice chage');
     })
 
     histoize(spookvalue);
@@ -73,9 +73,9 @@ async function histoize(datum) {
     /*
         Handle history and certain favourite interactions
     */
-   
+
     if (datum != false) {//alows displaying history on first startup
-        config.spokenhistory.push(datum)
+        config.spokenhistory.push(datum);
         Storage.set({ key: 'config', value: JSON.stringify(config) });
     }
 
@@ -83,8 +83,8 @@ async function histoize(datum) {
 
 
     for (let i = config.spokenhistory.length - 1; i > -1; i--) {
-        console.log('History elm ', i, config.spokenhistory[i])
-        making_of_history(i, config.spokenhistory[i])
+        console.log('History elm ', i, config.spokenhistory[i]);
+        making_of_history(i, config.spokenhistory[i]);
     }
 
     function making_of_history(inxed, spokhistdatum) {
@@ -95,6 +95,7 @@ async function histoize(datum) {
         let element_title = document.createElement('div');
         element_title.setAttribute('class', "element_title");
         element_title.innerHTML = spokhistdatum;
+        element_title.title = "Speak " + spokhistdatum;
         history_element.appendChild(element_title);
 
         let element_controls = document.createElement('div');
@@ -114,6 +115,7 @@ async function histoize(datum) {
         element_title.addEventListener('click', function (event) {//copy old history
             console.log('Clicked titile: ', inxed);
             document.getElementById('textput').value = spokhistdatum;
+            blurt(spokhistdatum);
         });
 
         remove_element_trigger.addEventListener('click', function (event) {//remove only this from history
@@ -158,7 +160,7 @@ async function favouritize(newfavourite) {
             favouritinator(i, config.favourites[i])
         }
         document.getElementById("mid-space").classList = "mid-space-with-favourites"
-    }else{
+    } else {
         document.getElementById("mid-space").classList = "mid-space"
     }
 
@@ -185,6 +187,7 @@ async function favouritize(newfavourite) {
         element_title.addEventListener('click', function (event) {//copy old history
             console.log('Clicked titile: ', inxed);
             document.getElementById('textput').value = favouritestring;
+            blurt(favouritestring);
         });
 
         remove_element_trigger.addEventListener('click', function (event) {//remove only this from history
