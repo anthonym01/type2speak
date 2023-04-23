@@ -6,6 +6,8 @@ Relies` on Web Speech API and capacitor
 */
 
 const textput = document.getElementById('textput');
+const favourites_content = document.getElementById('favourites_content')
+const history_content = document.getElementById('history_content')
 
 const { App, Toast, Storage } = Capacitor.Plugins;
 
@@ -39,7 +41,7 @@ window.addEventListener('load', async function () {// Startup point
 (async function () {//text input handling
     let wait = [];//stores key inputs for a short time
 
-    document.getElementById('textput').addEventListener('keypress', function (e) {
+    textput.addEventListener('keypress', function (e) {
         console.log(e.key);
 
         for (let i in wait) { clearTimeout(wait.pop()); }//remove old /waiting key inputs
@@ -49,7 +51,7 @@ window.addEventListener('load', async function () {// Startup point
         wait.push(waitaction);//save incase inputs are received after this timer is set
     })
 
-    document.getElementById('speak_btn').addEventListener('click', function () { blurt(document.getElementById('textput').value) });
+    document.getElementById('speak_btn').addEventListener('click', function () { blurt(textput.value) });
 })();
 
 async function blurt(spookvalue) {// Speak a string value
@@ -79,7 +81,7 @@ async function histoize(datum) {
         Storage.set({ key: 'config', value: JSON.stringify(config) });
     }
 
-    document.getElementById('history_content').innerHTML = "";
+    history_content.innerHTML = "";
 
 
     for (let i = config.spokenhistory.length - 1; i > -1; i--) {
@@ -110,11 +112,11 @@ async function histoize(datum) {
         remove_element_trigger.setAttribute('class', "remove_element");
         element_controls.appendChild(remove_element_trigger);
 
-        document.getElementById('history_content').appendChild(history_element);
+    history_content.appendChild(history_element);
 
         element_title.addEventListener('click', function (event) {//copy old history
             console.log('Clicked titile: ', inxed);
-            document.getElementById('textput').value = spokhistdatum;
+            textput.value = spokhistdatum;
             blurt(spokhistdatum);
         });
 
@@ -153,7 +155,7 @@ async function favouritize(newfavourite) {
     }
 
     if (config.favourites.length > 0) {//pre-existing favourites, Display saved favourites
-        document.getElementById('favourites_content').innerHTML = "";
+        favourites_content.innerHTML = "";
 
         for (let i = config.favourites.length - 1; i > -1; i--) {
             console.log('favourite elm ', i, config.favourites[i])
@@ -182,11 +184,11 @@ async function favouritize(newfavourite) {
         remove_element_trigger.setAttribute('class', "remove_element");
         element_controls.appendChild(remove_element_trigger);
 
-        document.getElementById('favourites_content').appendChild(history_element);
+        favourites_content.appendChild(history_element);
 
         element_title.addEventListener('click', function (event) {//copy old history
             console.log('Clicked titile: ', inxed);
-            document.getElementById('textput').value = favouritestring;
+            textput.value = favouritestring;
             blurt(favouritestring);
         });
 
