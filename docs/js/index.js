@@ -106,10 +106,12 @@ async function histoize(datum) {
 
         let add_to_favourite_trigger = document.createElement('div');
         add_to_favourite_trigger.setAttribute('class', "add_to_favourite");
+        add_to_favourite_trigger.title = `Add "${spokhistdatum}" to favourites`
         element_controls.appendChild(add_to_favourite_trigger);
 
         let remove_element_trigger = document.createElement('div');
         remove_element_trigger.setAttribute('class', "remove_element");
+        remove_element_trigger.title = "remove";
         element_controls.appendChild(remove_element_trigger);
 
     history_content.appendChild(history_element);
@@ -174,15 +176,19 @@ async function favouritize(newfavourite) {
         let element_title = document.createElement('div');
         element_title.setAttribute('class', "element_title");
         element_title.innerHTML = favouritestring;
+        element_title.title = "Speak " + favouritestring;
+
         history_element.appendChild(element_title);
 
         let element_controls = document.createElement('div');
         element_controls.setAttribute('class', "element_controls");
+        element_controls.title = "Remove";
         history_element.appendChild(element_controls);
 
         let remove_element_trigger = document.createElement('div');
         remove_element_trigger.setAttribute('class', "remove_element");
         element_controls.appendChild(remove_element_trigger);
+        
 
         favourites_content.appendChild(history_element);
 
