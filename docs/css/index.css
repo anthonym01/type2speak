@@ -1,7 +1,7 @@
 :root {
   --background_color: white;
   --text_color: black;
-  --accent-color: rgb(0, 229, 255);
+  --accent-color: #00e5ff;
   --speaker_image: url('../img/sound-pngrepo-com.png');
   --heart_image: url('../img/heart-pngrepo-com.png');
   --trash_image: url('../img/trash-pngrepo-com.png');
