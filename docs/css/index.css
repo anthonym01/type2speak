@@ -167,7 +167,8 @@ body {
 .history_element {
   /* An element of history :D */
   position: relative;
-  height: 2rem;
+  min-height: 2rem;
+  height: fit-content;
   font-size: 1.2rem;
   width: 95%;
   white-space: nowrap;
@@ -182,20 +183,20 @@ body {
 }
 
 .element_title {
-  position: absolute;
+  position: relative;
   box-sizing: border-box;
   text-align: auto;
   line-height: auto;
-  position: absolute;
   top: 0%;
   left: 0;
   font-size: 1.3rem;
   width: calc(100% - 4.5rem);
-  height: 2rem;
+  min-height: 2rem;
   font-size: Lexend_Deca;
   box-sizing: border-box;
   padding-left: 1rem;
   cursor: pointer;
+  white-space: wrap;
   transition: font-size 300ms, transform 300ms, padding-left 300ms, line-height 300ms;
   transform: translateY(0rem);
 }
